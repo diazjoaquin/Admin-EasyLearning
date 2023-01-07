@@ -8,6 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { Link } from 'react-router-dom';
 
     const Sidebar = () => {
         return (
@@ -35,8 +36,11 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
             <ListItemIcon>
                 <BarChartIcon />
             </ListItemIcon>
-            <ListItemText primary="Statistics" />
-            </ListItemButton>
+            <Link to='/statistics'>
+                <ListItemText primary="Statistics" />
+            </Link>
+                </ListItemButton>
+            
         </React.Fragment>
         </div>
         )
