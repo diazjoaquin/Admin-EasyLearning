@@ -9,7 +9,6 @@ const Home = () => {
 
     return (
         <section>
-            <Navbar/>
             <Sidebar/>
             <Dashboard/>
         </section>
