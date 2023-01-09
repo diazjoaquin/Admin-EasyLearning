@@ -40,6 +40,9 @@ import { Link } from 'react-router-dom';
                 <ListItemText primary="Statistics" />
             </Link>
                 </ListItemButton>
+                <Link to='/reviews'>
+                <ListItemText primary="Reviwes" />
+                </Link>
             
         </React.Fragment>
         </div>
