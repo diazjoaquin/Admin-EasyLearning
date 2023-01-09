@@ -9,6 +9,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from 'react-router-dom';
+import s from './Sidebar.module.css'
 
     const Sidebar = () => {
         return (
@@ -37,7 +38,7 @@ import { Link } from 'react-router-dom';
                 <BarChartIcon />
             </ListItemIcon>
             <Link to='/statistics'>
-                <ListItemText primary="Statistics" />
+                <ListItemText className={s.link} primary="Statistics" />
             </Link>
                 </ListItemButton>
             
