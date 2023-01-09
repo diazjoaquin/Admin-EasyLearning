@@ -30,16 +30,17 @@ const Sidebar = () => {
                     <ListItemIcon>
                         <PeopleIcon />
                     </ListItemIcon>
-                    <Link to='users'>
-                        <ListItemText primary="Users" />
-                    </Link>
+                    <ListItemText primary="Users" />
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
                         <BarChartIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Statistics" />
+                    <Link to='/statistics'>
+                        <ListItemText primary="Statistics" />
+                    </Link>
                 </ListItemButton>
+
             </React.Fragment>
         </div>
     )
