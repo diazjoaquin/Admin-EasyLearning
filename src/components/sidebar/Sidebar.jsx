@@ -9,6 +9,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from 'react-router-dom';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
     const Sidebar = () => {
         return (
@@ -40,9 +41,14 @@ import { Link } from 'react-router-dom';
                 <ListItemText primary="Statistics" />
             </Link>
                 </ListItemButton>
-                <Link to='/reviews'>
+            <ListItemButton>
+            <ListItemIcon>
+                <ReviewsIcon />
+            </ListItemIcon>
+            <Link to='/reviews'>
                 <ListItemText primary="Reviwes" />
-                </Link>
+            </Link>
+            </ListItemButton>
             
         </React.Fragment>
         </div>
