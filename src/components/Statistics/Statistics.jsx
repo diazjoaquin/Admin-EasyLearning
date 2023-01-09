@@ -18,14 +18,13 @@ const Statistics = () => {
     const data = {
         labels:["Only students", "Teachers"],
         datasets: [{
-            label: "Partidos",
-            backgroundColor: ["gray", "white"],
+            label: "Total",
+            backgroundColor: ["#304ffe", "#448aff"],
             borderColor: "black",
             borderWidth: 2,
-            hoverBackgroundColor: "yellow",
-            hoverBorderColor: "white",
+            hoverBackgroundColor: "#bdbdbd",
+            hoverBorderColor: "black",
             data:[state?.data?.users-state?.data?.teachers, state?.data?.teachers]
-
           }]
     }
     const options = {
