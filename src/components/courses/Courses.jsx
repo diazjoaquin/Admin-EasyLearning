@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import NavBar from '../navbar/Navbar.jsx';
 
 const Courses = () => {
 
@@ -17,7 +16,6 @@ const Courses = () => {
 
     return (
         <section>
-            <NavBar/>
             <div>
                 {courses?.data.map(course => {
                     return <div>{course.name}</div>

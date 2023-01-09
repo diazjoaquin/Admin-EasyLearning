@@ -8,38 +8,41 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { Link } from 'react-router-dom';
 
-    const Sidebar = () => {
-        return (
+const Sidebar = () => {
+    return (
         <div>
-        <React.Fragment>
-            <ListItemButton>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-            </ListItemButton>
-            <ListItemButton>
-            <ListItemIcon>
-                <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
-            </ListItemButton>
-            <ListItemButton>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Users" />
-            </ListItemButton>
-            <ListItemButton>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Statistics" />
-            </ListItemButton>
-        </React.Fragment>
+            <React.Fragment>
+                <ListItemButton>
+                    <ListItemIcon>
+                        <DashboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItemButton>
+                <ListItemButton>
+                    <ListItemIcon>
+                        <ShoppingCartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Orders" />
+                </ListItemButton>
+                <ListItemButton>
+                    <ListItemIcon>
+                        <PeopleIcon />
+                    </ListItemIcon>
+                    <Link to='users'>
+                        <ListItemText primary="Users" />
+                    </Link>
+                </ListItemButton>
+                <ListItemButton>
+                    <ListItemIcon>
+                        <BarChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Statistics" />
+                </ListItemButton>
+            </React.Fragment>
         </div>
-        )
-    }
+    )
+}
 
-    export default Sidebar;
+export default Sidebar;

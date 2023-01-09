@@ -9,9 +9,8 @@ const Home = () => {
 
     return (
         <section>
-            <Navbar/>
-            <Sidebar/>
-            <Dashboard/>
+            <Sidebar />
+            <Dashboard />
         </section>
     )
 };
