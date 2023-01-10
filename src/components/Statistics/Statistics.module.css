@@ -24,6 +24,16 @@
     border-radius: 20px;
 }
 
+.infoContainer3{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 50vh;
+    border-radius: 20px;
+}
+
 .info{
     font-size: larger;
 }
