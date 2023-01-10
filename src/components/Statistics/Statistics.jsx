@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Pie } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 const Statistics = () => {
 
@@ -12,6 +14,24 @@ const Statistics = () => {
     useEffect(() => {
         getStatistics()
     }, [])
+
+    const data = {
+        labels:["Only students", "Teachers"],
+        datasets: [{
+            label: "Total",
+            backgroundColor: ["#304ffe", "#448aff"],
+            borderColor: "black",
+            borderWidth: 2,
+            hoverBackgroundColor: "#bdbdbd",
+            hoverBorderColor: "black",
+            data:[state?.data?.users-state?.data?.teachers, state?.data?.teachers]
+          }]
+    }
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+
 
     return (
         <div>
@@ -27,6 +47,10 @@ const Statistics = () => {
                 {state?.data?.courses}
                 <h4>Videos: </h4>
                 {state?.data?.videos}
+            </div>
+            <div style={{width:"500px", height:"500px"}}>
+                <h2>Chart</h2>
+                <Pie data={data} options={options}/>
             </div>
         </div>
     )

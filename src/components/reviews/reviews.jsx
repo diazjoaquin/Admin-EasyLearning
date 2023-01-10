@@ -9,6 +9,8 @@ import TabPanel from '@mui/lab/TabPanel';
 
 const Reviews = ()=> {
   const [value, setValue] = React.useState('1');
+
+  const [update, setUpdate] = useState(false)
   
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -25,9 +27,12 @@ const Reviews = ()=> {
  useEffect(() => {
     if(!state)
     getAllReviews()
- }, [state, setState])
+ }, [state, setState, update])
 
- const handleDelete = (e) => {
+ const handleDeleted = async (id, string) => {
+  console.log(id, string);
+  let response = await axios.delete(`http://localhost:3001/deleteComments/${id}/${string}`)
+  window.location.reload()
   
 }
   
@@ -44,7 +49,7 @@ const Reviews = ()=> {
         <TabPanel value="1"> 
         {state?state[0].map(comment => (
           <h2 key={comment.id}>
-            <button onClick={(e) => handleDelete(e)}>X</button>
+            <button onClick={() => handleDeleted(comment.id, "ReviewsPage")}>X</button>
             <h4>{comment.title}</h4>
             <h4>{comment.comments}</h4>
           </h2>
@@ -53,7 +58,7 @@ const Reviews = ()=> {
           
         {state?state[1].map(comment => (
           <h2 key={comment.id}>
-            <button onClick={(e) => handleDelete(e)}>X</button>
+            <button onClick={() => handleDeleted(comment.id, "ReviewsCourses")}>X</button>
             <h4>{comment.title}</h4>
             <h4>{comment.comments}</h4>
           </h2>
@@ -61,7 +66,7 @@ const Reviews = ()=> {
         <TabPanel value="3"><h2></h2>
         {state?state[2].map(comment => (
           <h2 key={comment.id}>
-            <button onClick={(e) => handleDelete(e)}>X</button>
+            <button onClick={() => handleDeleted(comment.id, "CommentsVideos")}>X</button>
             <h4>{comment.title}</h4>
             <h4>{comment.description}</h4>
           </h2>
