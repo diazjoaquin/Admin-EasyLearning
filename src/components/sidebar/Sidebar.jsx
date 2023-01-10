@@ -30,7 +30,9 @@ const Sidebar = () => {
                     <ListItemIcon>
                         <PeopleIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Users" />
+                    <Link to='users'>
+                        <ListItemText primary="Users" />
+                    </Link>
                 </ListItemButton>
                 <ListItemButton>
                     <ListItemIcon>
