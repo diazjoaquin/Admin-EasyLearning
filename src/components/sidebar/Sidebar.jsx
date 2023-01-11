@@ -8,16 +8,19 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { Link } from 'react-router-dom';
+import s from './Sidebar.module.css'
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
-    const Sidebar = () => {
-        return (
+const Sidebar = () => {
+    return (
         <div>
         <React.Fragment>
             <ListItemButton>
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Courses" />
             </ListItemButton>
             <ListItemButton>
             <ListItemIcon>
@@ -29,17 +32,33 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Users" />
+            <Link className={s.link} to='users'>
+                        <ListItemText primary="Users" />
+                    </Link>
             </ListItemButton>
             <ListItemButton>
             <ListItemIcon>
                 <BarChartIcon />
             </ListItemIcon>
-            <ListItemText primary="Statistics" />
+            <Link className={s.link} to='/statistics'>
+                <ListItemText primary="Statistics" />
+            </Link>
+                </ListItemButton>
+            <ListItemButton>
+            <ListItemIcon>
+                <ReviewsIcon />
+            </ListItemIcon>
+            <Link className={s.link} to='/reviews'>
+                <ListItemText primary="Reviews" />
+            </Link>
             </ListItemButton>
+            
         </React.Fragment>
         </div>
         )
     }
 
-    export default Sidebar;
+           
+
+
+export default Sidebar;
