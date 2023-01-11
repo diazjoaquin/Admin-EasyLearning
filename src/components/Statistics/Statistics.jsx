@@ -30,19 +30,19 @@ const Statistics = () => {
           }]
     }
     const data2 = {
-        labels:["Only students", "Teachers"],
+        labels:["Reviews page", "Reviews courses", "Comments videos"],
         datasets: [{
             label: "Total",
-            backgroundColor: ["#304ffe", "#448aff"],
+            backgroundColor: ["#304ffe", "#448aff", "#90caf9"],
             borderColor: "black",
             borderWidth: 2,
             hoverBackgroundColor: "#bdbdbd",
             hoverBorderColor: "black",
-            data:[state?.data?.users-state?.data?.teachers, state?.data?.teachers]
+            data:[state?.data?.reviewsPage, state?.data?.reviewsCourse, state?.data?.commentsVideo]
           }]
     }
     const data3 = {
-        labels:["Only students", "Teachers"],
+        labels:["Courses", "Teachers"],
         datasets: [{
             label: "Total",
             backgroundColor: ["#304ffe", "#448aff"],
@@ -50,7 +50,7 @@ const Statistics = () => {
             borderWidth: 2,
             hoverBackgroundColor: "#bdbdbd",
             hoverBorderColor: "black",
-            data:[state?.data?.users-state?.data?.teachers, state?.data?.teachers]
+            data:[state?.data?.courses, state?.data?.teachers]
           }]
     }
     const options = {
@@ -73,6 +73,12 @@ const Statistics = () => {
                 <h2 className={s.info2}>{state?.data?.courses}</h2>
                 <h4 className={s.info}>Videos: </h4>
                 <h2 className={s.info2}>{state?.data?.videos}</h2>
+                <h4 className={s.info}>Reviews page: </h4>
+                <h2 className={s.info2}>{state?.data?.reviewsPage}</h2>
+                <h4 className={s.info}>Reviews courses: </h4>
+                <h2 className={s.info2}>{state?.data?.reviewsCourse}</h2>
+                <h4 className={s.info}>Comments videos: </h4>
+                <h2 className={s.info2}>{state?.data?.commentsVideo}</h2>
                 
             </div>
                 <div className={s.infoContainer2}>
@@ -81,11 +87,11 @@ const Statistics = () => {
                     <Pie data={data} options={options}/>
                 </div>
                 <div style={{width:"33%", height:"40vh"}}>
-                    <h2 className={s.title}>Chart</h2>
+                    <h2 className={s.title}>Reviews/Comments</h2>
                     <Pie data={data2} options={options}/>
                 </div>
                 <div style={{width:"33%", height:"40vh"}}>
-                    <h2 className={s.title}>Chart</h2>
+                    <h2 className={s.title}>Courses/Teachers</h2>
                     <Pie data={data3} options={options}/>
                 </div>
             </div>

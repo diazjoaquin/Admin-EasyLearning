@@ -32,7 +32,7 @@ const Sidebar = () => {
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <Link to='users'>
+            <Link className={s.link} to='users'>
                         <ListItemText primary="Users" />
                     </Link>
             </ListItemButton>
@@ -40,15 +40,15 @@ const Sidebar = () => {
             <ListItemIcon>
                 <BarChartIcon />
             </ListItemIcon>
-            <Link to='/statistics'>
-                <ListItemText className={s.link} primary="Statistics" />
+            <Link className={s.link} to='/statistics'>
+                <ListItemText primary="Statistics" />
             </Link>
                 </ListItemButton>
             <ListItemButton>
             <ListItemIcon>
                 <ReviewsIcon />
             </ListItemIcon>
-            <Link to='/reviews'>
+            <Link className={s.link} to='/reviews'>
                 <ListItemText primary="Reviwes" />
             </Link>
             </ListItemButton>

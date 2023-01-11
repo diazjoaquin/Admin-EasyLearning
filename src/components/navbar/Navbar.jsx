@@ -169,9 +169,8 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Link to='/'>
+          <Link className={s.link}to='/'>
             <Typography  
-            className={s.link}
             variant="h6"
             noWrap
             component="div"
