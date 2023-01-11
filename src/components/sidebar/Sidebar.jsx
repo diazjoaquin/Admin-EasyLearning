@@ -20,7 +20,7 @@ const Sidebar = () => {
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Courses" />
             </ListItemButton>
             <ListItemButton>
             <ListItemIcon>

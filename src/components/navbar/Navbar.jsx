@@ -17,6 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 import s from './Navbar.module.css';
+import BasicMenu from '../basicMenu/BasicMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -215,9 +216,10 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton> */}
+            <BasicMenu/>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -226,7 +228,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <MoreIcon />
-            </IconButton>
+            </IconButton> */}
           </Box>
         </Toolbar>
       </AppBar>
