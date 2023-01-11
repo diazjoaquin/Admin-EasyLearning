@@ -28,7 +28,7 @@ const Reviews = ()=> {
  const [state, setState] = useState(null);
 
  const getAllReviews = async () => {
-    const result = await axios.get("http://localhost:3001/getAllReviewTotal")
+    const result = await axios.get("https://easylearning-vhgp.onrender.com/getAllReviewTotal")
     setState(result.data)
  }
 console.log(state);
@@ -40,7 +40,7 @@ console.log(state);
 
  const handleDeleted = async (id, string) => {
   console.log(id, string);
-  await axios.delete(`http://localhost:3001/deleteComments/${id}/${string}`)
+  await axios.delete(`/deleteComments/${id}/${string}`)
   window.location.reload()
   
 }
