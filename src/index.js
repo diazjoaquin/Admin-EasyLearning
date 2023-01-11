@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
 
-axios.defaults.baseURL = process.env.REACT_APP_API;
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3000";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

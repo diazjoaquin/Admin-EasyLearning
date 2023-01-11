@@ -11,8 +11,8 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from 'react-router-dom';
 import s from './Sidebar.module.css'
 
-    const Sidebar = () => {
-        return (
+const Sidebar = () => {
+    return (
         <div>
         <React.Fragment>
             <ListItemButton>
@@ -31,7 +31,9 @@ import s from './Sidebar.module.css'
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Users" />
+            <Link to='users'>
+                        <ListItemText primary="Users" />
+                    </Link>
             </ListItemButton>
             <ListItemButton>
             <ListItemIcon>
@@ -41,10 +43,10 @@ import s from './Sidebar.module.css'
                 <ListItemText className={s.link} primary="Statistics" />
             </Link>
                 </ListItemButton>
-            
-        </React.Fragment>
-        </div>
-        )
-    }
 
-    export default Sidebar;
+            </React.Fragment>
+        </div>
+    )
+}
+
+export default Sidebar;

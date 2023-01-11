@@ -7,58 +7,58 @@ import Paper from '@mui/material/Paper';
 import Chart from '../chart/Chart.jsx';
 import Deposits from '../deposits/Deposits.jsx';
 import Orders from '../orders/Orders.jsx';
- 
-export default function Dashboard () {
+
+export default function Dashboard() {
     return (
         <Box
-                component="main"
-                sx={{
-                    backgroundColor: (theme) =>
+            component="main"
+            sx={{
+                backgroundColor: (theme) =>
                     theme.palette.mode === 'light'
                         ? theme.palette.grey[100]
                         : theme.palette.grey[900],
-                    flexGrow: 1,
-                    height: '100vh',
-                    overflow: 'auto',
-                }}
-                >
-                <Toolbar />
-                <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                    <Grid container spacing={3}>
+                flexGrow: 1,
+                height: '100vh',
+                overflow: 'auto',
+            }}
+        >
+            <Toolbar />
+            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                <Grid container spacing={3}>
                     {/* Chart */}
                     <Grid item xs={12} md={8} lg={9}>
                         <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
+                            sx={{
+                                p: 2,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: 240,
+                            }}
                         >
-                        <Chart />
+                            <Chart />
                         </Paper>
                     </Grid>
                     {/* Recent Deposits */}
                     <Grid item xs={12} md={4} lg={3}>
                         <Paper
-                        sx={{
-                            p: 2,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 240,
-                        }}
+                            sx={{
+                                p: 2,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: 240,
+                            }}
                         >
-                        <Deposits />
+                            <Deposits />
                         </Paper>
                     </Grid>
                     {/* Recent Orders */}
                     <Grid item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                        <Orders />
+                            <Orders />
                         </Paper>
                     </Grid>
-                    </Grid>
-                </Container>
+                </Grid>
+            </Container>
         </Box>
-        )
-    }
+    )
+}
