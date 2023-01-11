@@ -10,6 +10,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from 'react-router-dom';
 import s from './Sidebar.module.css'
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
 const Sidebar = () => {
     return (
@@ -43,10 +44,21 @@ const Sidebar = () => {
                 <ListItemText className={s.link} primary="Statistics" />
             </Link>
                 </ListItemButton>
-
-            </React.Fragment>
+            <ListItemButton>
+            <ListItemIcon>
+                <ReviewsIcon />
+            </ListItemIcon>
+            <Link to='/reviews'>
+                <ListItemText primary="Reviwes" />
+            </Link>
+            </ListItemButton>
+            
+        </React.Fragment>
         </div>
-    )
-}
+        )
+    }
+
+           
+
 
 export default Sidebar;
