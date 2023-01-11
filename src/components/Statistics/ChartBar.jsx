@@ -2,7 +2,7 @@ import { Bar, } from 'react-chartjs-2';
 import 'chart.js/auto';
 import s from './ChartBar.module.css';
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ["July", "August", "September", "October", "November", "December", "January"];
 const data = {
   labels: labels,
   datasets: [{
