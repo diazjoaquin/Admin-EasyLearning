@@ -49,7 +49,7 @@ const Sidebar = () => {
                 <ReviewsIcon />
             </ListItemIcon>
             <Link className={s.link} to='/reviews'>
-                <ListItemText primary="Reviwes" />
+                <ListItemText primary="Reviews" />
             </Link>
             </ListItemButton>
             

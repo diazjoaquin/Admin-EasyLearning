@@ -10,7 +10,7 @@ const Statistics = () => {
     const [state, setState] = useState();
 
     const getStatistics = async () => {
-        setState(await axios.get("http://localhost:3001/getStatistics"))
+        setState(await axios.get("/getStatistics"))
     }
 
     useEffect(() => {

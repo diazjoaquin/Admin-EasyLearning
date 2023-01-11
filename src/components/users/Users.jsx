@@ -18,7 +18,7 @@ const Users = () => {
 
   const getData = async (data, setData) => {
     let listUsers;
-    listUsers = await axios.get("http://localhost:3001/getUsers");
+    listUsers = await axios.get("/getUsers");
     listUsers = listUsers.data
     setData(data = listUsers)
   }
@@ -62,7 +62,7 @@ const Users = () => {
       confirmButtonText: 'Yes!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.patch("http://localhost:3001/updateUserDashboard", { array: usersSelected, status: "ACTIVE" })
+        await axios.patch("/updateUserDashboard", { array: usersSelected, status: "ACTIVE" })
         document.getElementById("checkbox1").checked = false;
         await setUsersSelected([])
         await setData(null)
@@ -83,7 +83,7 @@ const Users = () => {
       confirmButtonText: 'Yes!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.patch("http://localhost:3001/updateUserDashboard", { array: usersSelected, status: "BANNED" })
+        await axios.patch("/updateUserDashboard", { array: usersSelected, status: "BANNED" })
         document.getElementById("checkbox1").checked = false;
         await setUsersSelected([])
         await setData(null)
@@ -103,7 +103,7 @@ const Users = () => {
       confirmButtonText: 'Yes!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.patch("http://localhost:3001/updateUserDashboard", { array: usersSelected, status: "DELETED" })
+        await axios.patch("/updateUserDashboard", { array: usersSelected, status: "DELETED" })
         document.getElementById("checkbox1").checked = false;
         await setUsersSelected([])
         await setData(null)
@@ -123,7 +123,7 @@ const Users = () => {
       confirmButtonText: 'Yes!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.patch("http://localhost:3001/updateUserDashboard", { array: usersSelected, admin: true })
+        await axios.patch("/updateUserDashboard", { array: usersSelected, admin: true })
         document.getElementById("checkbox1").checked = false;
         await setUsersSelected([])
         await setData(null)
@@ -143,7 +143,7 @@ const Users = () => {
       confirmButtonText: 'Yes!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.patch("http://localhost:3001/updateUserDashboard", { array: usersSelected, admin: false })
+        await axios.patch("/updateUserDashboard", { array: usersSelected, admin: false })
         document.getElementById("checkbox1").checked = false;
         await setUsersSelected([])
         await setData(null)

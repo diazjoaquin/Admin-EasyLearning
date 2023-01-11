@@ -6,7 +6,7 @@ const Courses = () => {
     const [courses, setCourses] = useState();
 
     const getCourses = async () => {
-        setCourses(await axios.get('https://easylearning-owau.onrender.com/getAllCourses'));
+        setCourses(await axios.get('/getAllCourses'));
     };
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const Courses = () => {
         <section>
             <div>
                 {courses?.data.map(course => {
-                    return <div>{course.name}</div>
+                    return <div key={course.id}>{course.name}</div>
                 })}
             </div>
         </section>
