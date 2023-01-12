@@ -15,10 +15,24 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Link } from 'react-router-dom';
 import s from './Navbar.module.css';
 import BasicMenu from '../basicMenu/BasicMenu';
+import axios from 'axios';
+import { Button, Input, Modal } from '@mui/material';
+import { ErrorSharp } from '@mui/icons-material';
 
 export default function PrimarySearchAppBar() {
+
+  const [errors, setErrors] = React.useState({
+    email: null,
+    password: null
+  })
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const userDB = JSON.parse(sessionStorage.getItem("user"))
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -110,23 +124,97 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+
+
+  const handleChangeEmail = async (e) => {
+    let response = await axios.get(`/getUserByEmail?email=${e.target.value}`)
+    response?.data.admin ?
+      setErrors({
+        ...errors,
+        email: null
+      })
+      : setErrors({
+        ...errors,
+        email: "no sos admin"
+      })
+  }
+
+  const handleChangePassword = (e) => {
+    if (e.target.value !== "4s>;=ThI") {
+      setErrors({
+        ...errors,
+        password: "Password incorrect!"
+      })
+    } else {
+      setErrors({
+        ...errors,
+        password: null
+      })
+    }
+  }
+
+  const handleSubmit = () => {
+    handleClose()
+    sessionStorage.setItem("user", JSON.stringify("on"))
+  }
+
+  React.useEffect(() => {
+    if (!userDB)
+      handleOpen()
+    console.log(errors);
+  }, [userDB])
+
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          p: 4,
+          position: 'absolute',
+          alignItems: 'center',
+          justifyContent: 'center',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 400,
+          bgcolor: 'background.paper',
+          border: '2px solid #000',
+          boxShadow: 24,
+
+        }}>
+          <label htmlFor="">Email:</label>
+          <br />
+          <input onChange={handleChangeEmail}></input>
+          {errors?.email?.length && <p> {errors.email}</p>}
+          <br />
+          <label htmlFor="">Password:</label>
+          <br />
+          <input type='password' onChange={handleChangePassword}></input>
+          {errors?.password?.length && <p> {errors.password}</p>}
+          <button onClick={handleSubmit} disabled={(errors?.email === null && errors?.password === null) ? false : true}> Submit </button>
+        </Box>
+      </Modal >
       <AppBar position="static">
         <Toolbar>
-          <Link className={s.link}to='/'>
-            <Typography  
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+          <Link className={s.link} to='/'>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-            EASYLEARNING - ADMIN
+              EASYLEARNING - ADMIN
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <BasicMenu/>
+            <BasicMenu />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
           </Box>
@@ -134,6 +222,6 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-    </Box>
+    </Box >
   );
 }
