@@ -36,7 +36,7 @@ export default function BasicMenu() {
         }}
       >
         <a href='http://localhost:3000/profile'><MenuItem onClick={handleClose}>Profile</MenuItem></a>
-      </Menu>
+      </Menu>      
     </div>
   );
 }

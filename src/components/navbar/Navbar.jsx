@@ -22,8 +22,7 @@ import { ErrorSharp } from '@mui/icons-material';
 export default function PrimarySearchAppBar() {
 
   const [errors, setErrors] = React.useState({
-    email: null,
-    password: null
+    email: "Incorrect email", password: "Incorrect password"
   })
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -154,15 +153,26 @@ export default function PrimarySearchAppBar() {
   }
 
   const handleSubmit = () => {
-    handleClose()
-    sessionStorage.setItem("user", JSON.stringify("on"))
+    if(errors.email === null && errors.password === null){
+      handleClose()
+      sessionStorage.setItem("user", JSON.stringify("on"))
+    }
+  }
+
+  // logout
+  const [update, setUpdate] = React.useState(false)
+  const handleLogout = () => {
+     sessionStorage.clear()
+     setErrors({
+      email: "Incorrect email", password: "Incorrect password"
+    })
+     setUpdate(!update)
   }
 
   React.useEffect(() => {
     if (!userDB)
       handleOpen()
-    console.log(errors);
-  }, [userDB])
+  }, [userDB, update, errors])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -218,6 +228,7 @@ export default function PrimarySearchAppBar() {
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
           </Box>
+        <button onClick={handleLogout}>Log Out</button>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
