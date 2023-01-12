@@ -28,7 +28,9 @@ const Sidebar = () => {
             <ListItemIcon>
                 <ShoppingCartIcon />
             </ListItemIcon>
-            <ListItemText primary="Orders" />
+            <Link className={s.link} to='/purchases'>
+                <ListItemText primary="Purchases" />
+            </Link>
             </ListItemButton>
             <ListItemButton>
             <ListItemIcon>

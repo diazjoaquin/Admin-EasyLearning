@@ -31,7 +31,6 @@ const Reviews = ()=> {
     const result = await axios.get("https://easylearning-vhgp.onrender.com/getAllReviewTotal")
     setState(result.data)
  }
-console.log(state);
 
  useEffect(() => {
     if(!state)
