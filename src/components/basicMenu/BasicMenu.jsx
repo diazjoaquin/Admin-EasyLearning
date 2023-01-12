@@ -35,7 +35,7 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <a href='/profile' target="_blank"><MenuItem onClick={handleClose}>Profile</MenuItem></a>
+        <a href='http://localhost:3000/profile'><MenuItem onClick={handleClose}>Profile</MenuItem></a>
       </Menu>
     </div>
   );
